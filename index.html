@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguimiento de Calificaciones</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <h1>Seguimiento de Calificaciones de Estudiantes</h1>
+
+    <div id="promedio" class="promedio-box">
+        Promedio de Calificaciones: No Disponible
+    </div>
+
+    <div class="form-container">
+        <form id="formulario" onsubmit="agregarEstudiante(event)">
+            <label for="nombre">Nombre:</label><br>
+            <input type="text" id="nombre" name="nombre" required
+                   oninvalid="this.setCustomValidity('Por favor, complete el campo Nombre.')"
+                   oninput="setCustomValidity('')"><br>
+
+            <label for="apellido">Apellido:</label><br>
+            <input type="text" id="apellido" name="apellido" required
+                   oninvalid="this.setCustomValidity('Por favor, complete el campo Apellido.')"
+                   oninput="setCustomValidity('')"><br>
+
+            <label for="calificacion">Calificación (1.0 - 7.0):</label><br>
+            <input type="number" id="calificacion" name="calificacion" step="0.1" min="1.0" max="7.0" required
+                   oninvalid="this.setCustomValidity('Ingrese una calificación válida entre 1.0 y 7.0.')"
+                   oninput="setCustomValidity('')"><br>
+
+            <button type="submit">Agregar Estudiante</button>
+        </form>
+    </div>
+
+    <table id="tabla">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Calificación</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>
