@@ -1,49 +1,59 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seguimiento de Calificaciones</title>
-    <link rel="stylesheet" href="estilos.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Document</title>
+    <link rel="stylesheet" href="estilos.css" />
+    <style>
+        
+        #average {
+            margin: 16px 0;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #04167c;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #04167c;
+        }
+    </style>
 </head>
 <body>
+    <h2>Seguimiento De Calificaciones De Estudiantes</h2>
+    <div id="average">Promedio De Calificaciones: </div>
+    <form id="studentForm">
+        <div>
+            <label for="name"> Nombre: </label>
+            <input type="text" id="name" required />
+        </div>
+        <div>
+            <label for="lastName">Apellido: </label>
+            <input type="text" id="lastName" required />
+        </div>
+        <div>
+            <label for="grade">Nota (1.0 - 7.0):</label>
+            <input type="number" id="grade" step="0.1" min="1" max="7" required />
+        </div>
+        <div>
+            <label for="date">Fecha: </label>
+            <input type="date" id="date" required />
+        </div>
+        <button type="submit">Agregar Estudiante</button>
+    </form>
 
-    <h1>Seguimiento de Calificaciones de los Estudiantes</h1>
-
-    <div id="promedio" class="promedio-box">
-        Promedio de Calificaciones: No Disponible
-    </div>
-
-    <div class="form-container">
-        <form id="formulario" onsubmit="agregarEstudiante(event)">
-            <label for="nombre">Nombre:</label><br>
-            <input type="text" id="nombre" name="nombre" required
-                   oninvalid="this.setCustomValidity('Por favor, complete el campo Nombre.')"
-                   oninput="setCustomValidity('')"><br>
-
-            <label for="apellido">Apellido:</label><br>
-            <input type="text" id="apellido" name="apellido" required
-                   oninvalid="this.setCustomValidity('Por favor, complete el campo Apellido.')"
-                   oninput="setCustomValidity('')"><br>
-
-            <label for="calificacion">Calificación (1.0 - 7.0):</label><br>
-            <input type="number" id="calificacion" name="calificacion" step="0.1" min="1.0" max="7.0" required
-                   oninvalid="this.setCustomValidity('Ingrese una calificación válida entre 1.0 y 7.0.')"
-                   oninput="setCustomValidity('')"><br>
-
-            <button type="submit">Agregar Estudiante</button>
-        </form>
-    </div>
-
-    <table id="tabla">
+    <table id="studentsTable" border="1" cellpadding="8" cellspacing="0">
         <thead>
             <tr>
                 <th>Nombre</th>
                 <th>Apellido</th>
-                <th>Calificación</th>
+                <th>Nota</th>
+                <th>Fecha</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
+            <!--Datos de las filas de cada alumno-->
         </tbody>
     </table>
 
