@@ -100,3 +100,31 @@ function calcularPromedio() {
   const prom = total / students.length;
   averageDiv.textContent = "Promedio General del Curso : " + prom.toFixed(2);
 }
+
+function calcularPromedio() {
+  if (students.length === 0) {
+    averageDiv.textContent = "Promedio General del Curso : N/A";
+    updateStatistics(0, 0, 0);
+    return;
+  }
+  
+  const total = students.reduce((sum, student) => sum + student.grade, 0);
+  const prom = total / students.length;
+  averageDiv.textContent = "Promedio General del Curso : " + prom.toFixed(2);
+  
+  // Actualizar estadísticas
+  const totalStudents = students.length;
+  const passed = students.filter(student => student.grade >= 4.0).length;
+  const failed = totalStudents - passed;
+  
+  updateStatistics(totalStudents, passed, failed);
+}
+
+function updateStatistics(total, passed, failed) {
+  const statsDiv = document.getElementById("statistics");
+  statsDiv.innerHTML = `
+    <p>Total de Estudiantes: ${total}</p>
+    <p>Cantidad de Aprobados: ${passed}</p>
+    <p>Cantidad de Reprobados: ${failed}</p>
+  `;
+}

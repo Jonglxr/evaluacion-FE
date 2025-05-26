@@ -41,6 +41,30 @@ h2 {
   border-radius: 6px;
 }
 
+/* Estilo para la tabla de estadísticas */
+#statistics {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+#statistics p {
+  border: 1px solid #aaa;
+  padding: 10px;
+  text-align: center;
+  margin: 5px;
+}
+
+#statistics p:nth-child(odd) {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+#statistics p:nth-child(even) {
+  background-color: #fff;
+  font-weight: bold;
+}
+
 /* Formulario */
 form {
   background-color: #fff;
@@ -67,7 +91,9 @@ input[type="date"] {
 }
 
 /* Botón */
-button[type="submit"] {
+button[type="submit"],
+.edit-btn,
+.delete-btn {
   background-color: #007bff;
   color: white;
   border: none;
@@ -78,7 +104,9 @@ button[type="submit"] {
   cursor: pointer;
 }
 
-button[type="submit"]:hover {
+button[type="submit"]:hover,
+.edit-btn:hover,
+.delete-btn:hover {
   background-color: #005fcc;
 }
 
